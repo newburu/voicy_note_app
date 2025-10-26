@@ -28,4 +28,7 @@ Rails.application.routes.draw do
 
   # ログアウト用のルート
   delete "/logout", to: "sessions#destroy"
+
+  # NoteモデルのCRUD（作成、一覧、詳細、更新、削除）用のルートを自動生成
+  resources :notes
 end

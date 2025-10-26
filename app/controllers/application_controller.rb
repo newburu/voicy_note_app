@@ -18,4 +18,13 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
   helper_method :logged_in?
+
+  private
+
+  # ログインを要求するメソッド
+  def require_login
+    unless logged_in?
+      redirect_to root_path, alert: "ログインしてください"
+    end
+  end
 end
