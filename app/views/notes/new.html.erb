@@ -1,0 +1,34 @@
+<h2>Voicyメモを新規作成</h2>
+
+<%= form_with model: @note, url: notes_path, local: true do |f| %>
+
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :voicy_url, 'Voicy放送URL' %><br>
+    <%= f.text_field :voicy_url, placeholder: 'https://voicy.jp/...' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_time, '放送時間 (分:秒)' %><br>
+    <%= f.text_field :start_time, placeholder: '例: 235 (2:35) または 1105 (11:05)' %>
+    </div>
+
+  <div class="field">
+    <%= f.label :body, 'メモ本文' %><br>
+    <%= f.text_area :body, rows: 10, placeholder: "## 学び/要点\n・\n\n## 行動に移すこと\n・ [ ] \n\n## キーワード\n#" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'メモを保存' %>
+  </div>
+<% end %>
