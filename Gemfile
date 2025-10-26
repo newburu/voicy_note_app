@@ -58,3 +58,16 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+# --- SNS認証 (OmniAuth) ---
+gem 'omniauth'
+gem 'omniauth-google-oauth2' 
+# gem 'omniauth-twitter' # Xは後で検討
+
+# --- 環境変数管理 ---
+gem 'dotenv-rails'
+
+# --- テストフレームワーク (開発環境・テスト環境のみ) ---
+group :development, :test do
+  gem 'rspec-rails'
+end
