@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # OmniAuthのコールバック（認証後に戻ってくる場所）
   # /auth/google_oauth2/callback というURLで sessions#create が呼ばれる
-  get "/auth/:provider/callback", to: "sessions#create"
+  match "/auth/:provider/callback", to: "sessions#create", via: [ :get, :post ]
 
   # 認証失敗時のルート
   get "/auth/failure", to: "sessions#failure"

@@ -59,15 +59,16 @@ group :development do
   gem "web-console"
 end
 
-# --- SNS認証 (OmniAuth) ---
-gem 'omniauth'
-gem 'omniauth-google-oauth2' 
-# gem 'omniauth-twitter' # Xは後で検討
-
 # --- 環境変数管理 ---
-gem 'dotenv-rails'
+gem "dotenv-rails"
+
+# --- SNS認証 (OmniAuth) ---
+gem "omniauth"
+gem "omniauth-google-oauth2"
+# gem 'omniauth-twitter' # Xは後で検討
+gem "omniauth-rails_csrf_protection"
 
 # --- テストフレームワーク (開発環境・テスト環境のみ) ---
 group :development, :test do
-  gem 'rspec-rails'
+  gem "rspec-rails"
 end

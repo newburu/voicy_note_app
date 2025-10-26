@@ -30,9 +30,11 @@
       <nav>
         <% if logged_in? %>
           <span>こんにちは, <%= current_user.name %> さん</span>
+          <%= link_to 'メモを作成する', new_note_path %>
+          <%= link_to 'マイノート一覧', notes_path %>
           <%= link_to 'ログアウト', logout_path, data: { "turbo-method": :delete } %>
         <% else %>
-          <%= link_to 'Googleでログイン', '/auth/google_oauth2' %>
+          <%= button_to "Googleでログイン", "/auth/google_oauth2", class: 'btn btn-outline-primary', form: { data: { turbo: false } } %>
         <% end %>
       </nav>
       <% if flash[:notice] %>
